@@ -54,10 +54,10 @@ class DartPackageDeployer {
 
   makeArchive() {
     execSync(`tar -czf ${currentVersion}.tar.gz *`, {
-      cwd: package_path,
+      cwd: env.package_path,
     });
     execSync(`mv ${currentVersion}.tar.gz /tmp/${currentVersion}.tar.gz`, {
-      cwd: package_path,
+      cwd: env.package_path,
     });
   }
 
@@ -113,8 +113,8 @@ class DartPackageDeployer {
     return new Promise((res, rej) => {
       cosInstance.getObject(
         {
-          Bucket: cosBucket,
-          Region: cosRegion,
+          Bucket: env.cos_bucket,
+          Region: env.cos_region,
           Key: `/${this.name}/package.json`,
           Output: createWriteStream(`/tmp/${this.name}.package.json`),
         },
