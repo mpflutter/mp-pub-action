@@ -23,6 +23,7 @@ const env = {
 const cosInstance = new COS({
   SecretId: env.secret_id,
   SecretKey: env.secret_key,
+  UseAccelerate: true,
 });
 let currentVersion = github.context.ref.replace("refs/tags/", "");
 let originYaml = YAML.parse(
