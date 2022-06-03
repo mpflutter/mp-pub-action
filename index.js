@@ -2,6 +2,7 @@ const core = require("@actions/core");
 const github = require("@actions/github");
 const YAML = require("yaml");
 const { execSync } = require("child_process");
+const COS = require("cos-nodejs-sdk-v5");
 const {
   createReadStream,
   readFileSync,
